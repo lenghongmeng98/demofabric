@@ -4,7 +4,7 @@ cp -R ./ledger ./ledger2
 #variable for setting peer addresses
 export CORE_PEER_ID="Org1MSP"
 export CORE_PEER_LOCALMSPID="Org1MSP"
-export CORE_PEER_LISTENADDRESS=0.0.0.0:7051
+export CORE_PEER_LISTENADDRESS=localhost:7051
 export CORE_PEER_ADDRESS=localhost:7051
 export CORE_PEER_GOSSIP_BOOTSTRAP=localhost:7051
 export CORE_PEER_GOSSIP_EXTERNALENDPOINT=localhost:7051

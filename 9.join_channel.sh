@@ -12,6 +12,7 @@ setGlobalsForPeer0Org1(){
     export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7051
 }
+
 setGlobalsForPeer0Org2(){
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_ID="Org2MSP"
@@ -19,7 +20,6 @@ setGlobalsForPeer0Org2(){
     export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7053
 }
-
 
 joinChannel1(){
     setGlobalsForPeer0Org1
