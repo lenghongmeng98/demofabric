@@ -16,6 +16,9 @@ PeerOrgs:
     EnableNodeOUs: false
     Template:
       Count: 1
+      SANS:
+          - "localhost"
+          - "127.0.0.1"
     Users:
       Count: 1
 
@@ -24,5 +27,8 @@ PeerOrgs:
     EnableNodeOUs: false
     Template:
       Count: 1
+      SANS:
+          - "localhost"
+          - "127.0.0.1"
     Users:
       Count: 1

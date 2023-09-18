@@ -1,0 +1,17 @@
+=============== Sep 18, 2023 (+07) ===============
+09:37:03.431629 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+09:37:03.440444 db@open opening
+09:37:03.440769 version@stat F·[] S·0B[] Sc·[]
+09:37:03.443230 db@janitor F·2 G·0
+09:37:03.443298 db@open done T·2.819007ms
+09:37:03.443336 db@close closing
+09:37:03.443406 db@close done T·68.677µs
+=============== Sep 18, 2023 (+07) ===============
+09:37:03.445461 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+09:37:03.445620 version@stat F·[] S·0B[] Sc·[]
+09:37:03.445660 db@open opening
+09:37:03.445723 journal@recovery F·1
+09:37:03.446244 journal@recovery recovering @1
+09:37:03.448932 version@stat F·[] S·0B[] Sc·[]
+09:37:03.460385 db@janitor F·2 G·0
+09:37:03.460420 db@open done T·14.749224ms
