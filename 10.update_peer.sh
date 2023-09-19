@@ -17,7 +17,7 @@ setGlobalsForPeer0Org2(){
     export CORE_PEER_ID="Org2MSP"
     export ORDERER_CA=${PWD}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
-    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org1.example.com/msp
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7053
 }
 
@@ -26,10 +26,10 @@ updateAnchorPeers1(){
     peer channel update -o localhost:7050 -c mychannel -f ./artifact/Org1Anchor.tx --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 }
 
-# updateAnchorPeers2(){
-#     setGlobalsForPeer0Org2
-#     peer channel update -o localhost:7050 -c mychannel -f ./artifact/Org2Anchor.tx --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-# }
+updateAnchorPeers2(){
+    setGlobalsForPeer0Org2
+    peer channel update -o localhost:7050 -c mychannel -f ./artifact/Org2Anchor.tx --tls --cafile ${PWD}/crypto-config/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+}
 
 updateAnchorPeers1
-# updateAnchorPeers2
+updateAnchorPeers2
