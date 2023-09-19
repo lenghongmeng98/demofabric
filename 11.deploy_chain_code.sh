@@ -11,9 +11,10 @@ export ORDERER_CA=${PWD}/crypto-config/ordererOrganizations/example.com/orderers
 
 #set chaincode parameters
 CC_NAME="basic"
-CC_PATH="./chaincode"
-CC_VERSIOIN="0"
+CC_PATH="./chaincode-go"
+CC_VERSION="1.0"
 CC_SEQUENCE="1"
+CC_INIT_FUNCTION="initLedger"
 CC_RUNTIME_LANGUAGE="golang"
 CHANNEL_NAME=mychannel
 PRIVATE_DATA_CONFIG=${PWD}/config/collections_config.json
@@ -35,7 +36,7 @@ setGlobalsForPeer0Org2(){
 #If we run chaincode for the first time
 presetup(){
     echo Vendoring GO dependencies...
-    pushd ./chaincode/
+    pushd ./chaincode-go/
     GO111MODULE=on 
     go mod vendor
     popd
@@ -46,18 +47,18 @@ presetup(){
 packageChaincode(){
     setGlobalsForPeer0Org1
     rm -rf ${CC_NAME}.tar.gz
-    peer lifecycle chaincode package ${CC_NAME} .tar.gz -path ${CC_PATH} --lang $CC_RUNTIME_LANGUAGE --label $CC_NAME
+    peer lifecycle chaincode package ${CC_NAME}.tar.gz --path ${CC_PATH} --lang $CC_RUNTIME_LANGUAGE --label $CC_NAME
     echo "==================================== Chaincode is packaged on peer0.org1 ===================================="
 }
 
 installChaincode(){
     setGlobalsForPeer0Org1
-    peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    echo "==================================== Chaincode is installed on peer0.org1 ===================================="
+    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    # echo "==================================== Chaincode is installed on peer0.org1 ===================================="
 
-    setGlobalsForPeer0Org2
-    peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    echo "==================================== Chaincode is installed on peer0.org2 ===================================="
+    # setGlobalsForPeer0Org2
+    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    # echo "==================================== Chaincode is installed on peer0.org2 ===================================="
 
 }
 
@@ -78,7 +79,7 @@ approveForMyOrg1() {
     --ordererTLSHostnameOverride orderer.example.com --tls \
     --cafile $ORDERER_CA \
     --collections-config ${PRIVATE_DATA_CONFIG} \
-    --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSIOIN} \
+    --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} \
     --sequence ${CC_SEQUENCE} --init-required --package-id ${PACKAGE_ID}
     echo "==================================== Chaincode approved from org 1 ===================================="
 }
@@ -103,7 +104,7 @@ commitChaincodeDefination(){
     --collections-config $PRIVATE_DATA_CONFIG \
     --peerAddresses localhost:7051 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE1 \
     --peerAddresses localhost:7053 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
-    --version ${CC_VERSIOIN} --sequence ${CC_SEQUENCE} --init-required
+    --version ${CC_VERSION} --sequence ${CC_SEQUENCE} --init-required
 }
 
 queryCommitted() {
@@ -122,3 +123,4 @@ chaincodeInvokeInit(){
 
 presetup
 # packageChaincode
+# installChaincode
