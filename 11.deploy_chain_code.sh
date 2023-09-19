@@ -4,7 +4,7 @@ export CORE_PEER_TLS_ENABLED=true
 export CORE_PEER_LOCALMSID="Org1MSP"
 export CORE_PEER_TLS_ROOTCERT_FILE1=${PWD}/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
-export CORE_PEER_ADDRESS=localhost:7051
+# export CORE_PEER_ADDRESS=localhost:7051
 export CORE_PEER_TLS_ROOTCERT_FILE2=${PWD}/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 export ORDERER_CA=${PWD}/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
@@ -37,6 +37,7 @@ setGlobalsForPeer0Org2(){
 presetup(){
     echo Vendoring GO dependencies...
     pushd ./chaincode-go/
+    GOPROXY=https://goproxy.cn,direct
     GO111MODULE=on 
     go mod vendor
     popd
@@ -53,8 +54,8 @@ packageChaincode(){
 
 installChaincode(){
     setGlobalsForPeer0Org1
-    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    # echo "==================================== Chaincode is installed on peer0.org1 ===================================="
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "==================================== Chaincode is installed on peer0.org1 ===================================="
 
     # setGlobalsForPeer0Org2
     # peer lifecycle chaincode install ${CC_NAME}.tar.gz
@@ -121,6 +122,6 @@ chaincodeInvokeInit(){
     --isInit -c '{"Args":["InitLedger"]}'
 }
 
-presetup
+# presetup
 # packageChaincode
-# installChaincode
+installChaincode

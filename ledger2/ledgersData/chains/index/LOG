@@ -4,3 +4,42 @@
 14:52:45.445862 version@stat F·[] S·0B[] Sc·[]
 14:52:45.448394 db@janitor F·2 G·0
 14:52:45.448428 db@open done T·3.109796ms
+=============== Sep 19, 2023 (+07) ===============
+17:47:55.995364 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:47:55.995685 version@stat F·[] S·0B[] Sc·[]
+17:47:55.995741 db@open opening
+17:47:55.995847 journal@recovery F·1
+17:47:55.996246 journal@recovery recovering @1
+17:47:56.000282 memdb@flush created L0@2 N·8 S·349B "_\x00f,v1":"gen..c\x00\x00,v6"
+17:47:56.001438 version@stat F·[1] S·349B[349B] Sc·[0.25]
+17:47:56.016186 db@janitor F·3 G·0
+17:47:56.016271 db@open done T·20.50784ms
+=============== Sep 19, 2023 (+07) ===============
+19:09:12.286120 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:09:12.286520 version@stat F·[1] S·349B[349B] Sc·[0.25]
+19:09:12.286537 db@open opening
+19:09:12.286572 journal@recovery F·1
+19:09:12.286715 journal@recovery recovering @3
+19:09:12.290077 memdb@flush created L0@5 N·1 S·136B "gen..nfo,v10":"gen..nfo,v10"
+19:09:12.290551 version@stat F·[2] S·485B[485B] Sc·[0.50]
+19:09:12.303102 db@janitor F·4 G·0
+19:09:12.303139 db@open done T·16.593951ms
+=============== Sep 19, 2023 (+07) ===============
+19:10:10.622827 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:10:10.622938 version@stat F·[2] S·485B[485B] Sc·[0.50]
+19:10:10.622950 db@open opening
+19:10:10.622976 journal@recovery F·1
+19:10:10.623088 journal@recovery recovering @6
+19:10:10.623370 version@stat F·[2] S·485B[485B] Sc·[0.50]
+19:10:10.636033 db@janitor F·4 G·0
+19:10:10.636070 db@open done T·13.113376ms
+=============== Sep 20, 2023 (+07) ===============
+00:16:35.414719 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:16:35.415296 version@stat F·[2] S·485B[485B] Sc·[0.50]
+00:16:35.415326 db@open opening
+00:16:35.415397 journal@recovery F·1
+00:16:35.415676 journal@recovery recovering @8
+00:16:35.419796 memdb@flush created L0@10 N·1 S·136B "gen..nfo,v12":"gen..nfo,v12"
+00:16:35.420987 version@stat F·[3] S·621B[621B] Sc·[0.75]
+00:16:35.436166 db@janitor F·5 G·0
+00:16:35.436239 db@open done T·20.898768ms

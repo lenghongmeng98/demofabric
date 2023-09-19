@@ -4,3 +4,39 @@
 14:52:45.524719 version@stat F·[] S·0B[] Sc·[]
 14:52:45.526945 db@janitor F·2 G·0
 14:52:45.526992 db@open done T·2.521562ms
+=============== Sep 19, 2023 (+07) ===============
+17:47:56.128921 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:47:56.129252 version@stat F·[] S·0B[] Sc·[]
+17:47:56.129305 db@open opening
+17:47:56.129413 journal@recovery F·1
+17:47:56.134681 journal@recovery recovering @1
+17:47:56.138331 version@stat F·[] S·0B[] Sc·[]
+17:47:56.152369 db@janitor F·2 G·0
+17:47:56.152454 db@open done T·23.129559ms
+=============== Sep 19, 2023 (+07) ===============
+19:09:12.388716 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:09:12.389172 version@stat F·[] S·0B[] Sc·[]
+19:09:12.389213 db@open opening
+19:09:12.389302 journal@recovery F·1
+19:09:12.392454 journal@recovery recovering @2
+19:09:12.394495 version@stat F·[] S·0B[] Sc·[]
+19:09:12.402489 db@janitor F·2 G·0
+19:09:12.402514 db@open done T·13.28848ms
+=============== Sep 19, 2023 (+07) ===============
+19:10:10.728918 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:10:10.729287 version@stat F·[] S·0B[] Sc·[]
+19:10:10.729339 db@open opening
+19:10:10.729462 journal@recovery F·1
+19:10:10.734492 journal@recovery recovering @4
+19:10:10.737515 version@stat F·[] S·0B[] Sc·[]
+19:10:10.749296 db@janitor F·2 G·0
+19:10:10.749358 db@open done T·19.999967ms
+=============== Sep 20, 2023 (+07) ===============
+00:16:35.536636 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:16:35.537172 version@stat F·[] S·0B[] Sc·[]
+00:16:35.537219 db@open opening
+00:16:35.537324 journal@recovery F·1
+00:16:35.542335 journal@recovery recovering @6
+00:16:35.545961 version@stat F·[] S·0B[] Sc·[]
+00:16:35.558041 db@janitor F·2 G·0
+00:16:35.558096 db@open done T·20.859977ms
