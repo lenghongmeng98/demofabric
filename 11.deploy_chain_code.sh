@@ -29,7 +29,7 @@ setGlobalsForPeer0Org1(){
 setGlobalsForPeer0Org2(){
     export CORE_PEER_LOCALMSPID="Org2MSP"
     export CORE_PEER_TLS_ROOTCERT_FILE=${CORE_PEER_TLS_ROOTCERT_FILE2}
-    # export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
     export CORE_PEER_ADDRESS=localhost:7053
 }   
 
@@ -57,9 +57,9 @@ installChaincode(){
     peer lifecycle chaincode install ${CC_NAME}.tar.gz
     echo "==================================== Chaincode is installed on peer0.org1 ===================================="
 
-    # setGlobalsForPeer0Org2
-    # peer lifecycle chaincode install ${CC_NAME}.tar.gz
-    # echo "==================================== Chaincode is installed on peer0.org2 ===================================="
+    setGlobalsForPeer0Org2
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "==================================== Chaincode is installed on peer0.org2 ===================================="
 
 }
 
@@ -67,7 +67,7 @@ queryInstalled(){
     setGlobalsForPeer0Org1
     peer lifecycle chaincode queryinstalled \ >&log.txt
 
-    PACKAGE_ID=$(awk '/Package ID:/{sub("Package ID: ", ""); print}' log.tx | sed 's/, Label: basic//')
+    PACKAGE_ID=$(awk '/Package ID:/{sub("Package ID: ", ""); print}' log.txt | sed 's/, Label: basic//')
     echo PackageID is ${PACKAGE_ID}
     echo "==================================== Query installed successful on peer0.org1 on channel ===================================="
 }
@@ -124,4 +124,7 @@ chaincodeInvokeInit(){
 
 # presetup
 # packageChaincode
-installChaincode
+# installChaincode
+queryInstalled
+
+approveForMyOrg1
