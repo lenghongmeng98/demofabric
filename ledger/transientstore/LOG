@@ -1,0 +1,6 @@
+=============== Sep 20, 2023 (+07) ===============
+17:02:18.061677 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:02:18.067389 db@open opening
+17:02:18.067633 version@stat F·[] S·0B[] Sc·[]
+17:02:18.069807 db@janitor F·2 G·0
+17:02:18.069821 db@open done T·2.401117ms

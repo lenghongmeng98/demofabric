@@ -1,11 +1,8 @@
-module demofabric
+module github.com/hyperledger/fabric-samples/asset-transfer-abac/chaincode-go
 
-go 1.18
+go 1.17
 
-require (
-	github.com/hyperledger/fabric-contract-api-go v1.2.1
-	github.com/hyperledger/fabric-samples/asset-transfer-abac/chaincode-go v0.0.0-20230829150322-f2c1c59c50f8
-)
+require github.com/hyperledger/fabric-contract-api-go v1.2.1
 
 require (
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect

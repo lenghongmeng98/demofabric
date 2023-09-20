@@ -51,9 +51,6 @@ github.com/hyperledger/fabric-protos-go/ledger/queryresult
 github.com/hyperledger/fabric-protos-go/ledger/rwset
 github.com/hyperledger/fabric-protos-go/msp
 github.com/hyperledger/fabric-protos-go/peer
-# github.com/hyperledger/fabric-samples/asset-transfer-abac/chaincode-go v0.0.0-20230829150322-f2c1c59c50f8
-## explicit; go 1.17
-github.com/hyperledger/fabric-samples/asset-transfer-abac/chaincode-go/smart-contract
 # github.com/joho/godotenv v1.4.0
 ## explicit; go 1.12
 github.com/joho/godotenv
