@@ -115,11 +115,11 @@ commitChaincodeDefination(){
     
     peer lifecycle chaincode commit -o localhost:7050 \
     --ordererTLSHostnameOverride orderer.example.com \
-    --tls -cafile $ORDERER_CA \
+    --tls --cafile $ORDERER_CA \
     --channelID $CHANNEL_NAME --name ${CC_NAME} \
     --collections-config $PRIVATE_DATA_CONFIG \
-    --peerAddresses localhost:7051 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE1 \
-    --peerAddresses localhost:7053 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
+    --peerAddresses localhost:7051 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE1 \
+    --peerAddresses localhost:7053 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
     --version ${CC_VERSION} --sequence ${CC_SEQUENCE} --init-required
 }
 
@@ -132,8 +132,10 @@ chaincodeInvokeInit(){
     setGlobalsForPeer0Org1
 
     peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${ORDERER_CA} \
-    --peerAddresses localhost:7051 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE1 \
-    --peerAddresses localhost:7053 --tlsRootCerFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
+    --peerAddresses localhost:7051 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE1 \
+    --peerAddresses localhost:7053 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
+    --channelID mychannel --name basic \
+    # --isInit -c '{"function":"CreateAsset","Args":["asset7", "pink", "80", "90", "800"]}'
     --isInit -c '{"Args":["InitLedger"]}'
 }
 
@@ -145,4 +147,7 @@ queryInstalled
 # approveForMyOrg1
 # approveForMyOrg2
 # checkCommitReadyness
-commitChaincodeDefination
+# commitChaincodeDefination
+chaincodeInvokeInit
+
+# peer  chaincode  invoke  - o  localhost : 7050  -- ordererTLSHostnameOverride  orderer.example.com -- tls -- cafile  ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts / tlsca . example . com-cert . pem  -C  mychannel  - n  basic  -- peerAddresses  localhost : 7051  -- tlsRootCertFiles  ${PWD} / organizations / peerOrganizations / org1 . example . com / peers / peer0 . org1 . example . com / tls / ca . crt  -- peerAddresses  localhost : 9051  -- tlsRootCertFiles  ${PWD} /organizations / peerOrganizations / org2 . example . com / peers / peer0 . org2 . example . com / tls / ca . crt  - c  '{"function":"CreateAsset","Args":["asset7", "pink", "80", "Michel", "800"]}'
