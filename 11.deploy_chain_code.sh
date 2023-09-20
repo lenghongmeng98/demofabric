@@ -16,7 +16,7 @@ CC_VERSION="1.0"
 CC_SEQUENCE="1"
 CC_INIT_FUNCTION="initLedger"
 CC_RUNTIME_LANGUAGE="golang"
-CHANNEL_NAME=mychannel
+CHANNEL_NAME="mychannel"
 PRIVATE_DATA_CONFIG=${PWD}/config/collections_config.json
 
 setGlobalsForPeer0Org1(){
@@ -37,7 +37,7 @@ setGlobalsForPeer0Org2(){
 presetup(){
     echo Vendoring GO dependencies...
     pushd ./chaincode-go/
-    GOPROXY=https://goproxy.cn,direct
+    # GOPROXY=https://goproxy.cn,direct
     GO111MODULE=on 
     go mod vendor
     popd
@@ -85,21 +85,36 @@ approveForMyOrg1() {
     echo "==================================== Chaincode approved from org 1 ===================================="
 }
 
+approveForMyOrg2() {
+    setGlobalsForPeer0Org2
+    set -x
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+    --ordererTLSHostnameOverride orderer.example.com --tls \
+    --cafile $ORDERER_CA \
+    --collections-config ${PRIVATE_DATA_CONFIG} \
+    --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${CC_VERSION} \
+    --sequence ${CC_SEQUENCE} --init-required --package-id ${PACKAGE_ID}
+    echo "==================================== Chaincode approved from org 1 ===================================="
+}
+
 checkCommitReadyness(){
     setGlobalsForPeer0Org1
 
     peer lifecycle chaincode checkcommitreadiness \
     --ordererTLSHostnameOverride orderer.example.com --tls \
-    --cafile ${ORDERER_CA} \
+    --cafile $ORDERER_CA \
     --collections-config ${PRIVATE_DATA_CONFIG} \
-    --channelID ${CHANNEL_NAME} --output json --init-required
+    --channelID ${CHANNEL_NAME} --name ${CC_NAME} --version ${CC_VERSION} \
+    --sequence ${CC_SEQUENCE} --output json --init-required
     echo "==================================== checking commit readiness from org 1 ===================================="
 }
 
 commitChaincodeDefination(){
     setGlobalsForPeer0Org1
     
-    peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+    peer lifecycle chaincode commit -o localhost:7050 \
+    --ordererTLSHostnameOverride orderer.example.com \
     --tls -cafile $ORDERER_CA \
     --channelID $CHANNEL_NAME --name ${CC_NAME} \
     --collections-config $PRIVATE_DATA_CONFIG \
@@ -127,4 +142,7 @@ chaincodeInvokeInit(){
 # installChaincode
 queryInstalled
 
-approveForMyOrg1
+# approveForMyOrg1
+# approveForMyOrg2
+# checkCommitReadyness
+commitChaincodeDefination

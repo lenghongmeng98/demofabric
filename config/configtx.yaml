@@ -42,7 +42,7 @@ Organizations:
                 Rule: "OR('OrdererMSP.admin')"
 
         OrdererEndpoints:
-            - orderer.example.com:7050
+            - 127.0.0.1:7050
 
     - &Org1
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -71,7 +71,7 @@ Organizations:
             # install chaincode, interact with chaincode
             Endorsement:
                 Type: Signature
-                Rule: "OR('Org1MSP.peer')"
+                Rule: "OR('Org1MSP.peer', 'Org1MSP.admin')"
         AnchorPeers:
           - Host: localhost
             Port: 7051
@@ -100,10 +100,10 @@ Organizations:
                 Rule: "OR('Org2MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('Org2MSP.peer')"
+                Rule: "OR('Org2MSP.peer', 'Org2MSP.admin')"
         AnchorPeers:
           - Host: localhost
-            Port: 8051
+            Port: 7053
 ################################################################################
 #
 #   SECTION: Capabilities
