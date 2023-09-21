@@ -53,10 +53,10 @@ func (s *SmartContract) CreateAsset(ctx contractapi.TransactionContextInterface,
 	// to see if the caller has the "abac.creator" attribute with a value of true;
 	// if not, return an error.
 
-	err := ctx.GetClientIdentity().AssertAttributeValue("abac.creator", "true")
-	if err != nil {
-		return fmt.Errorf("submitting client not authorized to create asset, does not have abac.creator role")
-	}
+	// err := ctx.GetClientIdentity().AssertAttributeValue("abac.creator", "true")
+	// if err != nil {
+	// 	return fmt.Errorf("submitting client not authorized to create asset, does not have abac.creator role")
+	// }
 
 	exists, err := s.AssetExists(ctx, id)
 	if err != nil {
