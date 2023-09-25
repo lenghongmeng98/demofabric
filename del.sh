@@ -1,7 +1,7 @@
+./permission.sh
 rm -R ./artifact
 rm -R ./config/ledger
-rm -R ./ledger
-rm -R ./ledger2
+rm -R ./ledgers
 rm -R ./basic.tar.gz
 rm -R ./log.txt
 rm -R ./crypto-config

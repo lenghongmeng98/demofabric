@@ -5,9 +5,9 @@ export ORDERER_GENERAL_LISTENADDRESS=127.0.0.1
 export ORDERER_GENERAL_LOCALMSPID="OrdererMSP"
 
 #Finding File Config
-# export ORDERER_GENERAL_BOOTSTRAPMETHOD=file
+export ORDERER_GENERAL_BOOTSTRAPMETHOD=file
 export ORDERER_GENERAL_GENESISFILE=${PWD}/artifact/genesis.block
-# export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+export CORE_PEER_MSPCONFIGPATH=${PWD}/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 
 #Enable TLS 
 export ORDERER_GENERAL_TLS_ENABLED=true
