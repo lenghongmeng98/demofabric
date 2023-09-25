@@ -155,7 +155,7 @@ getAllAssets(){
 
 
 
-# presetup
+presetup
 packageChaincode
 installChaincode
 queryInstalled
