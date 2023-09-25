@@ -1,5 +1,8 @@
-1. create network first name "test"
-2. run up.sh // run network and install chaincode
+// run network and install chaincode
+run up.sh 
+
+// invoke chaincode
+run ./invoke.sh
 
 // update chaincode
-run update_chaincode.sh
+run ./update_chaincode.sh
